@@ -16,7 +16,6 @@ const themeMeta = document.querySelector('meta[name="theme-color"]');
 const themeFavicon = document.querySelector('link[rel="icon"]');
 const THEME_STORAGE_KEY = 'tempo-theme';
 const SITE_CONTENT_URL = 'content/site-content.json';
-const galleryCache = new Map();
 const galleryModal = document.querySelector('[data-gallery-modal]');
 const galleryTitle = document.querySelector('[data-gallery-title]');
 const galleryCategory = document.querySelector('[data-gallery-category]');
@@ -92,33 +91,6 @@ function setMediaPhoto(slot, photo, loading = 'lazy') {
   image.loading = loading;
 
   slot.prepend(image);
-}
-
-async function fetchFolderImages(folder) {
-  const normalizedFolder = folder.endsWith('/') ? folder : `${folder}/`;
-  const folderUrl = new URL(normalizedFolder, document.baseURI);
-  const cacheKey = folderUrl.pathname;
-
-  if (galleryCache.has(cacheKey)) {
-    return galleryCache.get(cacheKey);
-  }
-
-  const response = await fetch(folderUrl.href, { cache: 'no-store' });
-  if (!response.ok) {
-    galleryCache.set(cacheKey, []);
-    return [];
-  }
-
-  const html = await response.text();
-  const doc = new DOMParser().parseFromString(html, 'text/html');
-  const images = [...doc.querySelectorAll('a')]
-    .map((anchor) => anchor.getAttribute('href') || '')
-    .filter((href) => /\.(jpe?g|png|webp)$/i.test(href))
-    .map((href) => new URL(href, folderUrl).pathname)
-    .sort((a, b) => a.localeCompare(b, 'es', { numeric: true, sensitivity: 'base' }));
-
-  galleryCache.set(cacheKey, images);
-  return images;
 }
 
 async function loadSiteContent() {
@@ -219,18 +191,33 @@ async function setupContent() {
     return;
   }
 
-  const projects = await Promise.all(siteContent.projects.map(async (project) => {
-    const galleryPaths = await fetchFolderImages(project.galleryFolder);
-    const gallery = galleryPaths.map((src, index) => ({
-      src,
-      alt: `${project.label} · foto ${index + 1}`,
-    }));
+  const projects = siteContent.projects.map((project) => {
+    const explicitGallery = Array.isArray(project.gallery) ? project.gallery : [];
+    const gallery = explicitGallery
+      .map((entry, index) => {
+        if (typeof entry === 'string') {
+          return {
+            src: entry,
+            alt: `${project.label} · foto ${index + 1}`,
+          };
+        }
+
+        if (!entry || typeof entry !== 'object' || !entry.src) {
+          return null;
+        }
+
+        return {
+          src: entry.src,
+          alt: entry.alt || `${project.label} · foto ${index + 1}`,
+        };
+      })
+      .filter(Boolean);
 
     return {
       ...project,
       gallery: gallery.length ? gallery : [{ ...project.cover }],
     };
-  }));
+  });
 
   galleriesByProjectId = new Map(projects.map((project) => [project.id, project]));
   siteContent = { ...siteContent, projects };
