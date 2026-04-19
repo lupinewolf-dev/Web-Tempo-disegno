@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempo Disegno — Muebles a medida · Mendoza</title>
+  <meta name="description" content="Tempo Disegno. Sitio editorial para muebles a medida con identidad propia, basado en los materiales de la carpeta local.">
+  <meta name="theme-color" content="#0f0c09">
+  <script>
+    (() => {
+      const STORAGE_KEY = 'tempo-theme';
+      const root = document.documentElement;
+      let theme = 'dark';
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'light' || saved === 'dark') theme = saved;
+      } catch (_) {}
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', theme === 'light' ? '#f5efe4' : '#0f0c09');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=140">
+  <link rel="icon" href="assets/logo-blanco.png">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="site-brand" href="#inicio" aria-label="Tempo Disegno">
+        <img src="assets/logo-blanco.png" alt="Tempo Disegno" data-theme-logo>
+      </a>
+
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="site-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo claro" aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true"></span>
+          <span class="theme-toggle__label" data-theme-toggle-label>Oscuro</span>
+        </button>
+        <a class="whatsapp-pill" href="https://wa.me/5492612098239?text=Hola%20Tempo%20Disegno%2C%20quiero%20consultar%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a>
+        <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu" data-menu-toggle>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#contacto">Contacto</a>
+    <a class="mobile-menu__wa" href="https://wa.me/5492612098239?text=Hola%20Tempo%20Disegno%2C%20quiero%20consultar%20un%20proyecto." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <main id="contenido">
+    <section class="hero section-shell" id="inicio" aria-label="Portada">
+      <div class="container hero__inner">
+        <div class="hero__copy reveal">
+          <span class="hero__eyebrow">Mendoza · Argentina · otra forma de arte</span>
+          <h1 class="hero__title">Diseño<br><em>que<br>perdura.</em></h1>
+          <p class="hero__body">
+            Muebles pensados para sumar orden, calidez y continuidad visual en tonos elegidos con cuidado.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--solid" href="#proyectos">Ver proyectos</a>
+            <a class="button button--ghost" href="#contacto">Contacto</a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal" aria-hidden="true">
+          <div class="placeholder placeholder--hero" data-photo-slot="hero"></div>
+          <div class="hero__stamp">otra forma de arte</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Cocinas</span>
+        <span>Placares</span>
+        <span>Vanitorios</span>
+        <span>Escritorios</span>
+        <span>Diseño a medida</span>
+        <span>Fabricación propia</span>
+        <span>Mendoza · Argentina</span>
+        <span>Otra forma de arte</span>
+        <span>Cocinas</span>
+        <span>Placares</span>
+        <span>Vanitorios</span>
+        <span>Escritorios</span>
+      </div>
+    </div>
+
+    <section class="section projects" id="proyectos" aria-labelledby="proyectos-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <div>
+            <span class="section-head__eyebrow">Nuestro trabajo</span>
+            <h2 class="section-head__title" id="proyectos-title">Proyectos</h2>
+          </div>
+          <div class="section-head__aside">
+            <span class="section-head__count">30</span>
+            <span class="section-head__note">piezas y combinaciones de referencia</span>
+          </div>
+        </header>
+
+        <div class="filters reveal" role="tablist" aria-label="Categorías de proyectos">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter" type="button" data-filter="cocinas" aria-pressed="false">Cocinas</button>
+          <button class="filter" type="button" data-filter="placares-vestidores" aria-pressed="false">Placares</button>
+          <button class="filter" type="button" data-filter="vanitorios" aria-pressed="false">Vanitorios</button>
+          <button class="filter" type="button" data-filter="escritorios" aria-pressed="false">Escritorios</button>
+          <button class="filter" type="button" data-filter="varios" aria-pressed="false">Varios</button>
+        </div>
+
+        <p class="projects__status reveal" aria-live="polite" data-project-status>6 proyectos visibles</p>
+
+        <div class="projects-grid reveal">
+          <article class="project-card project-card--hero" data-category="cocinas" data-project-id="cocinas-principal">
+            <div class="project-card__media project-card__media--kitchen"></div>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Cocinas</span>
+              <h3>Cocina clara con contraste oscuro</h3>
+              <p>El contraste define el frente y amplía la lectura del espacio.</p>
+              <button class="project-card__open" type="button" data-open-gallery disabled>Ver fotos</button>
+            </div>
+          </article>
+
+          <article class="project-card project-card--square" data-category="cocinas" data-project-id="cocinas-secundaria">
+            <div class="project-card__media project-card__media--kitchen-alt"></div>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Cocinas</span>
+              <h3>Cocina en contraste</h3>
+              <p>La combinación de claros y oscuros ordena la vista y da presencia.</p>
+              <button class="project-card__open" type="button" data-open-gallery disabled>Ver fotos</button>
+            </div>
+          </article>
+
+          <article class="project-card project-card--tall" data-category="placares-vestidores" data-project-id="placares-vestidores">
+            <div class="project-card__media project-card__media--closet"></div>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Placares</span>
+              <h3>Vestidor de tonos neutros</h3>
+              <p>Una lectura limpia que acompaña sin recargar.</p>
+              <button class="project-card__open" type="button" data-open-gallery disabled>Ver fotos</button>
+            </div>
+          </article>
+
+          <article class="project-card project-card--square" data-category="vanitorios" data-project-id="vanitorios">
+            <div class="project-card__media project-card__media--vanity"></div>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Vanitorios</span>
+              <h3>Vanitorio suspendido</h3>
+              <p>Volumen claro y orden visual para un baño sereno.</p>
+              <button class="project-card__open" type="button" data-open-gallery disabled>Ver fotos</button>
+            </div>
+          </article>
+
+          <article class="project-card project-card--wide" data-category="escritorios" data-project-id="escritorios">
+            <div class="project-card__media project-card__media--desk"></div>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Escritorios</span>
+              <h3>Escritorio de tonos cálidos</h3>
+              <p>La tapa oscura y la base cálida componen un área de trabajo sobria.</p>
+              <button class="project-card__open" type="button" data-open-gallery disabled>Ver fotos</button>
+            </div>
+          </article>
+
+          <article class="project-card project-card--wide" data-category="varios" data-project-id="varios">
+            <div class="project-card__media project-card__media--storage"></div>
+            <div class="project-card__meta">
+              <span class="project-card__tag">Varios</span>
+              <h3>Guardado integral</h3>
+              <p>Un conjunto sereno que mantiene el espacio limpio y continuo.</p>
+              <button class="project-card__open" type="button" data-open-gallery disabled>Ver fotos</button>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="section-footer reveal">
+          <button class="section-link" type="button" data-filter="all">Ver todas las fotos</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="nosotros" aria-labelledby="nosotros-title">
+      <div class="container about__inner">
+        <div class="about__media reveal" aria-hidden="true">
+          <div class="placeholder placeholder--about" data-photo-slot="about"></div>
+        </div>
+
+        <div class="about__copy reveal">
+          <span class="section-head__eyebrow">Quiénes somos</span>
+          <h2 class="about__title" id="nosotros-title">Hacemos muebles que duran.</h2>
+          <p class="about__body">
+            Somos un estudio de diseño y fabricación de muebles a medida con base en Mendoza. Combinamos materiales de calidad, atención al detalle y un proceso de trabajo cercano para crear piezas que reflejan quién sos.
+          </p>
+          <p class="about__body">
+            Cada proyecto se piensa desde la primera idea hasta la instalación. Sin intermediarios, sin etapas tercerizadas.
+          </p>
+
+          <div class="about__facts">
+            <span>Diseño propio</span>
+            <span>Fabricación local</span>
+            <span>Instalación propia</span>
+          </div>
+
+          <a class="button button--ghost button--ghost--light" href="#contacto">Hablemos de tu proyecto</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="proceso" aria-labelledby="proceso-title">
+      <div class="container">
+        <header class="section-head reveal section-head--light">
+          <div>
+            <span class="section-head__eyebrow">Cómo trabajamos</span>
+            <h2 class="section-head__title" id="proceso-title">El proceso</h2>
+          </div>
+          <p class="process__lede">
+            Un recorrido simple y ordenado para que el proyecto llegue claro desde el primer encuentro.
+          </p>
+        </header>
+
+        <div class="process-grid">
+          <article class="process-step reveal">
+            <span class="process-step__num">01</span>
+            <h3 class="process-step__title">Consulta</h3>
+            <p class="process-step__text">Escuchamos tu idea, medimos el espacio y entendemos el uso real para definir una base sólida.</p>
+          </article>
+
+          <article class="process-step reveal">
+            <span class="process-step__num">02</span>
+            <h3 class="process-step__title">Diseño</h3>
+            <p class="process-step__text">Armamos una propuesta visual con materialidad, proporciones y detalles de terminación.</p>
+          </article>
+
+          <article class="process-step reveal">
+            <span class="process-step__num">03</span>
+            <h3 class="process-step__title">Fabricación</h3>
+            <p class="process-step__text">Producción artesanal en taller, con seguimiento fino en cada etapa de armado.</p>
+          </article>
+
+          <article class="process-step reveal">
+            <span class="process-step__num">04</span>
+            <h3 class="process-step__title">Instalación</h3>
+            <p class="process-step__text">Montaje prolijo, ajuste final y entrega lista para usar sin fricción.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto" aria-labelledby="contacto-title">
+      <div class="container contact__inner">
+        <div class="contact__info reveal">
+          <span class="section-head__eyebrow">Contacto</span>
+          <h2 class="contact__title" id="contacto-title">¿Empezamos tu proyecto?</h2>
+          <p class="contact__body">
+            Si ya tenés medidas, una referencia o apenas una idea, escribinos y te respondemos con una propuesta clara.
+          </p>
+
+          <div class="contact__list">
+            <div class="contact-item">
+              <span class="contact-item__label">WhatsApp</span>
+              <span class="contact-item__value">261 209 8239</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-item__label">Instagram</span>
+              <span class="contact-item__value">@tempoamoblamientos</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-item__label">Dirección</span>
+              <span class="contact-item__value">Mathus Hoyos 1177, Guaymallén</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-item__label">Horario</span>
+              <span class="contact-item__value">Lunes a viernes · 9 a 18 hs</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm">
+          <span class="section-head__eyebrow">Escribinos</span>
+          <label class="field">
+            <span>Tu nombre</span>
+            <input type="text" name="name" placeholder="Nombre y apellido" required>
+          </label>
+          <label class="field">
+            <span>Tipo de proyecto</span>
+            <select name="project" required>
+              <option value="">Elegí una opción</option>
+              <option>Cocina</option>
+              <option>Placard / vestidor</option>
+              <option>Vanitorio</option>
+              <option>Escritorio</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <label class="field field--full">
+            <span>Contanos qué necesitás</span>
+            <textarea name="message" rows="5" placeholder="Medidas, materiales, colores, tiempos..." required></textarea>
+          </label>
+          <button class="button button--solid button--submit" type="submit">Enviar por WhatsApp</button>
+          <p class="contact-form__hint">Respondemos con una primera devolución y siguientes pasos.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <img class="site-footer__logo" src="assets/logo-blanco.png" alt="Tempo Disegno" data-theme-logo>
+      <nav class="site-footer__nav" aria-label="Pie de página">
+        <a href="#inicio">Inicio</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="gallery-modal" data-gallery-modal hidden>
+    <button class="gallery-modal__backdrop" type="button" data-gallery-close aria-label="Cerrar galería"></button>
+    <div class="gallery-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="galleryTitle">
+      <button class="gallery-modal__close" type="button" data-gallery-close aria-label="Cerrar galería">×</button>
+      <div class="gallery-modal__header">
+        <p class="gallery-modal__eyebrow" data-gallery-category>Galería</p>
+        <h3 class="gallery-modal__title" id="galleryTitle" data-gallery-title>Proyecto</h3>
+        <p class="gallery-modal__count" data-gallery-counter>1 / 1</p>
+      </div>
+      <figure class="gallery-modal__figure">
+        <img class="gallery-modal__image" data-gallery-image alt="">
+        <figcaption class="gallery-modal__caption" data-gallery-caption></figcaption>
+      </figure>
+      <div class="gallery-modal__controls">
+        <button class="gallery-modal__nav" type="button" data-gallery-prev>Anterior</button>
+        <button class="gallery-modal__nav" type="button" data-gallery-next>Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "src": "fotos/proyectos/portada.jpg",
+    "alt": "Cocina principal con muebles blancos y mesada oscura"
+  },
+  "about": {
+    "src": "fotos/proyectos/portada-nosotros.jpg",
+    "alt": "Interior de cocina con muebles claros y vista al exterior"
+  },
+  "projects": [
+    {
+      "id": "cocinas-principal",
+      "label": "Cocinas",
+      "title": "Cocina clara con contraste oscuro",
+      "cover": {
+        "src": "fotos/proyectos/cocinas/1.jpg",
+        "alt": "Cocina de tonos claros con contraste oscuro"
+      },
+      "galleryFolder": "fotos/proyectos/cocinas"
+    },
+    {
+      "id": "cocinas-secundaria",
+      "label": "Cocinas",
+      "title": "Cocina en contraste",
+      "cover": {
+        "src": "fotos/proyectos/cocinas/5.jpg",
+        "alt": "Cocina con contraste marcado entre tonos claros y oscuros"
+      },
+      "galleryFolder": "fotos/proyectos/cocinas"
+    },
+    {
+      "id": "placares-vestidores",
+      "label": "Placares",
+      "title": "Vestidor de tonos neutros",
+      "cover": {
+        "src": "fotos/proyectos/placares-vestidores/1.jpg",
+        "alt": "Vestidor de tonos neutros y líneas limpias"
+      },
+      "galleryFolder": "fotos/proyectos/placares-vestidores"
+    },
+    {
+      "id": "vanitorios",
+      "label": "Vanitorios",
+      "title": "Vanitorio suspendido",
+      "cover": {
+        "src": "fotos/proyectos/vanitorios/1.jpg",
+        "alt": "Vanitorio de composición limpia y tonos serenos"
+      },
+      "galleryFolder": "fotos/proyectos/vanitorios"
+    },
+    {
+      "id": "escritorios",
+      "label": "Escritorios",
+      "title": "Escritorio de tonos cálidos",
+      "cover": {
+        "src": "fotos/proyectos/escritorios/1.jpg",
+        "alt": "Escritorio de tonos cálidos con superficie oscura"
+      },
+      "galleryFolder": "fotos/proyectos/escritorios"
+    },
+    {
+      "id": "varios",
+      "label": "Varios",
+      "title": "Guardado integral",
+      "cover": {
+        "src": "fotos/proyectos/varios/1.jpg",
+        "alt": "Guardado integral en tonos serenos"
+      },
+      "galleryFolder": "fotos/proyectos/varios"
+    }
+  ]
+}

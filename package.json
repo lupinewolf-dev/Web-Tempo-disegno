@@ -1,0 +1,10 @@
+{
+  "name": "tempo-3-0",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Tempo 3.0 static site built from the local design materials.",
+  "scripts": {
+    "dev": "python3 -m http.server 3001",
+    "start": "python3 -m http.server 3001"
+  }
+}
