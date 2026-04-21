@@ -1,6 +1,6 @@
 {
   "hero": {
-    "src": "fotos/proyectos/portada.jpg",
+    "src": "fotos/proyectos/portada.png",
     "alt": "Cocina principal con muebles blancos y mesada oscura"
   },
   "about": {
@@ -13,15 +13,15 @@
       "label": "Cocinas",
       "title": "Cocina clara con contraste oscuro",
       "cover": {
-        "src": "fotos/proyectos/cocinas/1.jpg",
+        "src": "fotos/proyectos/cocinas/1.png",
         "alt": "Cocina de tonos claros con contraste oscuro"
       },
       "gallery": [
-        "fotos/proyectos/cocinas/1.jpg",
+        "fotos/proyectos/cocinas/1.png",
         "fotos/proyectos/cocinas/2.jpg",
         "fotos/proyectos/cocinas/3.jpg",
         "fotos/proyectos/cocinas/4.jpg",
-        "fotos/proyectos/cocinas/5.jpg",
+        "fotos/proyectos/cocinas/5.png",
         "fotos/proyectos/cocinas/6.jpg",
         "fotos/proyectos/cocinas/7.jpg",
         "fotos/proyectos/cocinas/8.jpg",
@@ -54,15 +54,15 @@
       "label": "Cocinas",
       "title": "Cocina en contraste",
       "cover": {
-        "src": "fotos/proyectos/cocinas/5.jpg",
+        "src": "fotos/proyectos/cocinas/5.png",
         "alt": "Cocina con contraste marcado entre tonos claros y oscuros"
       },
       "gallery": [
-        "fotos/proyectos/cocinas/1.jpg",
+        "fotos/proyectos/cocinas/1.png",
         "fotos/proyectos/cocinas/2.jpg",
         "fotos/proyectos/cocinas/3.jpg",
         "fotos/proyectos/cocinas/4.jpg",
-        "fotos/proyectos/cocinas/5.jpg",
+        "fotos/proyectos/cocinas/5.png",
         "fotos/proyectos/cocinas/6.jpg",
         "fotos/proyectos/cocinas/7.jpg",
         "fotos/proyectos/cocinas/8.jpg",
@@ -134,32 +134,32 @@
       ]
     },
     {
-      "id": "vanitorios",
-      "label": "Vanitorios",
-      "title": "Vanitorio suspendido",
+      "id": "vanitorys",
+      "label": "Vanitorys",
+      "title": "Vanitory suspendido",
       "cover": {
-        "src": "fotos/proyectos/vanitorios/1.jpg",
-        "alt": "Vanitorio de composición limpia y tonos serenos"
+        "src": "fotos/proyectos/vanitorys/1.png",
+        "alt": "Vanitory de composición limpia y tonos serenos"
       },
       "gallery": [
-        "fotos/proyectos/vanitorios/1.jpg",
-        "fotos/proyectos/vanitorios/2.jpg",
-        "fotos/proyectos/vanitorios/3.jpg",
-        "fotos/proyectos/vanitorios/4.jpg",
-        "fotos/proyectos/vanitorios/5.jpg",
-        "fotos/proyectos/vanitorios/6.jpg",
-        "fotos/proyectos/vanitorios/7.jpg",
-        "fotos/proyectos/vanitorios/8.jpg",
-        "fotos/proyectos/vanitorios/9.jpg",
-        "fotos/proyectos/vanitorios/10.jpg",
-        "fotos/proyectos/vanitorios/11.jpg",
-        "fotos/proyectos/vanitorios/12.jpg",
-        "fotos/proyectos/vanitorios/13.jpg",
-        "fotos/proyectos/vanitorios/14.jpg",
-        "fotos/proyectos/vanitorios/15.jpg",
-        "fotos/proyectos/vanitorios/16.jpg",
-        "fotos/proyectos/vanitorios/17.jpg",
-        "fotos/proyectos/vanitorios/18.jpg"
+        "fotos/proyectos/vanitorys/1.png",
+        "fotos/proyectos/vanitorys/2.jpg",
+        "fotos/proyectos/vanitorys/3.jpg",
+        "fotos/proyectos/vanitorys/4.jpg",
+        "fotos/proyectos/vanitorys/5.jpg",
+        "fotos/proyectos/vanitorys/6.jpg",
+        "fotos/proyectos/vanitorys/7.jpg",
+        "fotos/proyectos/vanitorys/8.jpg",
+        "fotos/proyectos/vanitorys/9.jpg",
+        "fotos/proyectos/vanitorys/10.jpg",
+        "fotos/proyectos/vanitorys/11.jpg",
+        "fotos/proyectos/vanitorys/12.jpg",
+        "fotos/proyectos/vanitorys/13.jpg",
+        "fotos/proyectos/vanitorys/14.jpg",
+        "fotos/proyectos/vanitorys/15.jpg",
+        "fotos/proyectos/vanitorys/16.jpg",
+        "fotos/proyectos/vanitorys/17.jpg",
+        "fotos/proyectos/vanitorys/18.jpg"
       ]
     },
     {
@@ -200,11 +200,11 @@
       "label": "Varios",
       "title": "Guardado integral",
       "cover": {
-        "src": "fotos/proyectos/varios/1.jpg",
+        "src": "fotos/proyectos/varios/1.png",
         "alt": "Guardado integral en tonos serenos"
       },
       "gallery": [
-        "fotos/proyectos/varios/1.jpg",
+        "fotos/proyectos/varios/1.png",
         "fotos/proyectos/varios/2.jpg",
         "fotos/proyectos/varios/5.jpg",
         "fotos/proyectos/varios/20210907_115016.jpg",

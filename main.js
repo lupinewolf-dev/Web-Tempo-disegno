@@ -34,9 +34,9 @@ let activeGalleryIndex = 0;
 function getSavedTheme() {
   try {
     const saved = localStorage.getItem(THEME_STORAGE_KEY);
-    return saved === 'light' ? 'light' : 'dark';
+    return saved === 'dark' ? 'dark' : 'light';
   } catch (_) {
-    return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+    return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
   }
 }
 
@@ -142,10 +142,13 @@ function renderGallery() {
 
   galleryImage.src = current.src;
   galleryImage.alt = current.alt || '';
-  galleryTitle.textContent = project.title || project.label || 'Proyecto';
+  galleryTitle.textContent = '';
+  galleryTitle.hidden = true;
   galleryCategory.textContent = project.label || 'Galería';
   galleryCounter.textContent = `${activeGalleryIndex + 1} / ${gallery.length}`;
-  galleryCaption.textContent = current.alt || current.src.split('/').pop() || '';
+  const caption = current.caption || current.description || '';
+  galleryCaption.textContent = caption;
+  galleryCaption.hidden = !caption;
 
   if (galleryPrev) {
     galleryPrev.disabled = gallery.length <= 1;
@@ -163,6 +166,8 @@ function openGallery(projectId) {
   activeGalleryProjectId = projectId;
   activeGalleryIndex = 0;
   galleryModal.hidden = false;
+  document.body.classList.add('gallery-open');
+  document.documentElement.classList.add('gallery-open');
   document.body.style.overflow = 'hidden';
   renderGallery();
   galleryCloseButtons.forEach((button) => button.blur());
@@ -172,6 +177,8 @@ function openGallery(projectId) {
 function closeGallery() {
   if (!galleryModal) return;
   galleryModal.hidden = true;
+  document.body.classList.remove('gallery-open');
+  document.documentElement.classList.remove('gallery-open');
   document.body.style.overflow = '';
 }
 
@@ -199,6 +206,7 @@ async function setupContent() {
           return {
             src: entry,
             alt: `${project.label} · foto ${index + 1}`,
+            caption: '',
           };
         }
 
@@ -209,6 +217,7 @@ async function setupContent() {
         return {
           src: entry.src,
           alt: entry.alt || `${project.label} · foto ${index + 1}`,
+          caption: entry.caption || entry.description || '',
         };
       })
       .filter(Boolean);
@@ -298,6 +307,39 @@ const headerObserver = new IntersectionObserver(([entry]) => {
 
 const heroAnchor = document.getElementById('inicio');
 if (heroAnchor) headerObserver.observe(heroAnchor);
+
+const heroMotionQuery = window.matchMedia('(max-width: 820px)');
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+let heroMotionFrame = 0;
+
+function updateHeroMotion() {
+  heroMotionFrame = 0;
+
+  const heroImage = document.querySelector('.hero__visual .media-photo');
+  if (!heroImage) return;
+
+  if (!heroMotionQuery.matches || reducedMotionQuery.matches) {
+    heroImage.style.removeProperty('transform');
+    heroImage.style.removeProperty('will-change');
+    return;
+  }
+
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+  const scrollDistance = Math.max(0, Math.min(window.scrollY, viewportHeight));
+  heroImage.style.transform = `translateY(${(scrollDistance * 0.55).toFixed(2)}px)`;
+  heroImage.style.willChange = 'transform';
+}
+
+function requestHeroMotionUpdate() {
+  if (heroMotionFrame) return;
+  heroMotionFrame = window.requestAnimationFrame(updateHeroMotion);
+}
+
+window.addEventListener('scroll', requestHeroMotionUpdate, { passive: true });
+window.addEventListener('resize', requestHeroMotionUpdate);
+heroMotionQuery.addEventListener?.('change', requestHeroMotionUpdate);
+reducedMotionQuery.addEventListener?.('change', requestHeroMotionUpdate);
+requestHeroMotionUpdate();
 
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {

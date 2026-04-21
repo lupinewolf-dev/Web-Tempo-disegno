@@ -10,7 +10,7 @@
     (() => {
       const STORAGE_KEY = 'tempo-theme';
       const root = document.documentElement;
-      let theme = 'dark';
+      let theme = 'light';
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved === 'light' || saved === 'dark') theme = saved;
@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=140">
+  <link rel="stylesheet" href="styles.css?v=141">
   <link rel="icon" href="assets/logo-blanco.png">
 </head>
 <body>
@@ -66,7 +66,7 @@
 
   <main id="contenido">
     <section class="hero section-shell" id="inicio" aria-label="Portada">
-      <div class="container hero__inner">
+      <div class="hero__inner">
         <div class="hero__copy reveal">
           <span class="hero__eyebrow">Mendoza · Argentina · otra forma de arte</span>
           <h1 class="hero__title">Diseño<br><em>que<br>perdura.</em></h1>
@@ -90,7 +90,7 @@
       <div class="ticker__track">
         <span>Cocinas</span>
         <span>Placares</span>
-        <span>Vanitorios</span>
+        <span>Vanitorys</span>
         <span>Escritorios</span>
         <span>Diseño a medida</span>
         <span>Fabricación propia</span>
@@ -98,7 +98,7 @@
         <span>Otra forma de arte</span>
         <span>Cocinas</span>
         <span>Placares</span>
-        <span>Vanitorios</span>
+        <span>Vanitorys</span>
         <span>Escritorios</span>
       </div>
     </div>
@@ -110,17 +110,13 @@
             <span class="section-head__eyebrow">Nuestro trabajo</span>
             <h2 class="section-head__title" id="proyectos-title">Proyectos</h2>
           </div>
-          <div class="section-head__aside">
-            <span class="section-head__count">30</span>
-            <span class="section-head__note">piezas y combinaciones de referencia</span>
-          </div>
         </header>
 
         <div class="filters reveal" role="tablist" aria-label="Categorías de proyectos">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
           <button class="filter" type="button" data-filter="cocinas" aria-pressed="false">Cocinas</button>
           <button class="filter" type="button" data-filter="placares-vestidores" aria-pressed="false">Placares</button>
-          <button class="filter" type="button" data-filter="vanitorios" aria-pressed="false">Vanitorios</button>
+          <button class="filter" type="button" data-filter="vanitorys" aria-pressed="false">Vanitorys</button>
           <button class="filter" type="button" data-filter="escritorios" aria-pressed="false">Escritorios</button>
           <button class="filter" type="button" data-filter="varios" aria-pressed="false">Varios</button>
         </div>
@@ -158,11 +154,11 @@
             </div>
           </article>
 
-          <article class="project-card project-card--square" data-category="vanitorios" data-project-id="vanitorios">
+          <article class="project-card project-card--square" data-category="vanitorys" data-project-id="vanitorys">
             <div class="project-card__media project-card__media--vanity"></div>
             <div class="project-card__meta">
-              <span class="project-card__tag">Vanitorios</span>
-              <h3>Vanitorio suspendido</h3>
+              <span class="project-card__tag">Vanitorys</span>
+              <h3>Vanitory suspendido</h3>
               <p>Volumen claro y orden visual para un baño sereno.</p>
               <button class="project-card__open" type="button" data-open-gallery disabled>Ver fotos</button>
             </div>
@@ -352,6 +348,6 @@
     </div>
   </div>
 
-  <script src="main.js" defer></script>
+  <script src="main.js?v=2" defer></script>
 </body>
 </html>
